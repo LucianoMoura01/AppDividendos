@@ -27,7 +27,8 @@ function Write-JsonFile {
 
 function Send-JsonResponse {
     param($Response, $Data, [int]$StatusCode = 200)
-    $json = $Data | ConvertTo-Json -Depth 10
+    $json = ConvertTo-Json -InputObject $Data -Depth 10
+    if ([string]::IsNullOrEmpty($json)) { $json = "[]" }
     $buffer = [System.Text.Encoding]::UTF8.GetBytes($json)
     $Response.StatusCode = $StatusCode
     $Response.ContentType = "application/json; charset=utf-8"

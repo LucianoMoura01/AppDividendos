@@ -187,100 +187,140 @@ function importarB3() {
             var data = new Uint8Array(e.target.result);
             // Read Excel/CSV using SheetJS
             var workbook = XLSX.read(data, {type: 'array', cellDates: true});
-            var firstSheet = workbook.SheetNames[0];
-            var worksheet = workbook.Sheets[firstSheet];
+            var transacoes = [];
+            var errosParsing = 0;
+            var abasLidas = 0;
 
-            // Get array of arrays with raw values
-            var rows = XLSX.utils.sheet_to_json(worksheet, {header: 1, raw: true, defval: null});
+            for (var sheetIdx = 0; sheetIdx < workbook.SheetNames.length; sheetIdx++) {
+                var sheetName = workbook.SheetNames[sheetIdx];
+                var worksheet = workbook.Sheets[sheetName];
 
-            var headerRowIdx = -1;
-            var colMap = { data: -1, tipo: -1, ativo: -1, qtd: -1, preco: -1 };
+                // Get array of arrays with raw values
+                var rows = XLSX.utils.sheet_to_json(worksheet, {header: 1, raw: true, defval: null});
+                if (!rows || rows.length === 0) continue;
 
-            // Find the header row
-            for (var i = 0; i < Math.min(20, rows.length); i++) {
-                var row = rows[i];
-                if (!row) continue;
-                
-                var rowStr = row.map(function(c) { return String(c || '').toLowerCase().trim(); });
-                var ativoIdx = rowStr.indexOf('código de negociação');
-                if (ativoIdx === -1) ativoIdx = rowStr.indexOf('ativo');
-                if (ativoIdx === -1) ativoIdx = rowStr.indexOf('produto');
+                var headerRowIdx = -1;
+                var colMap = { data: -1, tipo: -1, ativo: -1, qtd: -1, preco: -1, entradaSaida: -1 };
 
-                if (ativoIdx !== -1) {
-                    headerRowIdx = i;
-                    colMap.ativo = ativoIdx;
+                // Find the header row
+                for (var i = 0; i < Math.min(20, rows.length); i++) {
+                    var row = rows[i];
+                    if (!row) continue;
                     
-                    for (var j = 0; j < rowStr.length; j++) {
-                        var c = rowStr[j];
-                        if (c.indexOf('data') !== -1) colMap.data = j;
-                        if (c.indexOf('tipo') !== -1 || c.indexOf('movimentação') !== -1) colMap.tipo = j;
-                        if (c === 'quantidade' || c === 'qtd') colMap.qtd = j;
-                        if (c.indexOf('preço') !== -1 || c.indexOf('preco') !== -1) colMap.preco = j;
+                    var rowStr = row.map(function(c) { return String(c || '').toLowerCase().trim(); });
+                    var ativoIdx = rowStr.indexOf('código de negociação');
+                    if (ativoIdx === -1) ativoIdx = rowStr.indexOf('ativo');
+                    if (ativoIdx === -1) ativoIdx = rowStr.indexOf('produto');
+
+                    if (ativoIdx !== -1) {
+                        headerRowIdx = i;
+                        colMap.ativo = ativoIdx;
+                        
+                        for (var j = 0; j < rowStr.length; j++) {
+                            var c = rowStr[j];
+                            if (c.indexOf('data') !== -1) colMap.data = j;
+                            if (c.indexOf('tipo') !== -1 || c.indexOf('movimentação') !== -1 || c.indexOf('movimentacao') !== -1) colMap.tipo = j;
+                            if (c === 'quantidade' || c === 'qtd') colMap.qtd = j;
+                            if (c.indexOf('preço') !== -1 || c.indexOf('preco') !== -1) colMap.preco = j;
+                            if (c.indexOf('entrada') !== -1 && c.indexOf('sa') !== -1) colMap.entradaSaida = j;
+                        }
+                        break;
                     }
-                    break;
+                }
+
+                if (headerRowIdx === -1 || colMap.ativo === -1 || colMap.qtd === -1) {
+                    continue; // Pula a aba se não encontrar cabeçalhos padrão
+                }
+
+                abasLidas++;
+
+                for (var k = headerRowIdx + 1; k < rows.length; k++) {
+                    var r = rows[k];
+                    if (!r || r.length === 0) continue;
+
+                    var rawData = colMap.data !== -1 ? r[colMap.data] : null;
+                    var rawTipo = colMap.tipo !== -1 ? String(r[colMap.tipo] || '').trim().toLowerCase() : '';
+                    var rawEntradaSaida = colMap.entradaSaida !== -1 ? String(r[colMap.entradaSaida] || '').trim().toLowerCase() : '';
+                    var ticker = String(r[colMap.ativo] || '').trim().toUpperCase();
+                    var rawQtd = colMap.qtd !== -1 ? r[colMap.qtd] : null;
+                    var rawPreco = colMap.preco !== -1 ? r[colMap.preco] : null;
+
+                    if (!ticker || !rawQtd) continue;
+
+                    if (ticker.indexOf(' - ') !== -1) {
+                        ticker = ticker.split(' - ')[0].trim();
+                    }
+
+                    // Ignorar eventos de proventos
+                    if (rawTipo.indexOf('rendimento') !== -1 || 
+                        rawTipo.indexOf('juros') !== -1 || 
+                        rawTipo.indexOf('dividendo') !== -1 ||
+                        rawTipo.indexOf('fração') !== -1 ||
+                        rawTipo.indexOf('leilão') !== -1 ||
+                        rawTipo.indexOf('bonificação') !== -1 ||
+                        rawTipo.indexOf('subscrição') !== -1 ||
+                        rawTipo.indexOf('resgate') !== -1) {
+                        continue;
+                    }
+
+                    // Format Date
+                    var dataFormatada = new Date().toISOString().split('T')[0];
+                    if (rawData instanceof Date) {
+                        dataFormatada = rawData.toISOString().split('T')[0];
+                    } else if (typeof rawData === 'string' && rawData.indexOf('/') !== -1) {
+                        var dParts = rawData.split('/');
+                        if (dParts.length === 3) {
+                            // Assume DD/MM/YYYY
+                            dataFormatada = dParts[2].split(' ')[0] + '-' + dParts[1] + '-' + dParts[0];
+                        }
+                    }
+
+                    var tipo = 'Compra';
+                    if (rawEntradaSaida) {
+                        if (rawEntradaSaida.indexOf('debito') !== -1 || rawEntradaSaida.indexOf('débito') !== -1) {
+                            tipo = 'Venda';
+                        }
+                    } else {
+                        if (rawTipo.indexOf('venda') !== -1 || rawTipo === 'v') tipo = 'Venda';
+                    }
+
+                    var qtd = 0;
+                    if (typeof rawQtd === 'number') {
+                        qtd = rawQtd;
+                    } else if (typeof rawQtd === 'string') {
+                        qtd = parseFloat(rawQtd.replace(/[^0-9,-]/g, '').replace(',', '.'));
+                    }
+
+                    var preco = 0;
+
+                    if (typeof rawPreco === 'number') {
+                        preco = rawPreco;
+                    } else if (typeof rawPreco === 'string') {
+                        preco = parseFloat(rawPreco.replace(/[^0-9,-]/g, '').replace(',', '.'));
+                    }
+
+                    if (ticker && !isNaN(qtd) && !isNaN(preco) && preco > 0) {
+                        transacoes.push({
+                            Data: dataFormatada,
+                            Tipo: tipo,
+                            Ticker: ticker,
+                            Quantidade: qtd,
+                            Preco: preco
+                        });
+                    } else {
+                        errosParsing++;
+                    }
                 }
             }
 
-            if (headerRowIdx === -1 || colMap.ativo === -1 || colMap.qtd === -1) {
-                showToast('Não foi possível identificar as colunas (Ativo, Quantidade) no arquivo.', 'error');
+            if (abasLidas === 0) {
+                showToast('Não foi possível identificar as colunas (Ativo, Quantidade) em nenhuma aba do arquivo.', 'error');
                 resetBtn();
                 return;
             }
 
-            var transacoes = [];
-            var errosParsing = 0;
-
-            for (var k = headerRowIdx + 1; k < rows.length; k++) {
-                var r = rows[k];
-                if (!r || r.length === 0) continue;
-
-                var rawData = r[colMap.data];
-                var rawTipo = String(r[colMap.tipo] || '').trim().toLowerCase();
-                var ticker = String(r[colMap.ativo] || '').trim().toUpperCase();
-                var rawQtd = r[colMap.qtd];
-                var rawPreco = r[colMap.preco];
-
-                if (!ticker || !rawQtd) continue;
-
-                // Format Date
-                var dataFormatada = new Date().toISOString().split('T')[0];
-                if (rawData instanceof Date) {
-                    dataFormatada = rawData.toISOString().split('T')[0];
-                } else if (typeof rawData === 'string' && rawData.indexOf('/') !== -1) {
-                    var dParts = rawData.split('/');
-                    if (dParts.length === 3) {
-                        // Assume DD/MM/YYYY
-                        dataFormatada = dParts[2].split(' ')[0] + '-' + dParts[1] + '-' + dParts[0];
-                    }
-                }
-
-                var tipo = 'Compra';
-                if (rawTipo.indexOf('venda') !== -1 || rawTipo === 'v') tipo = 'Venda';
-
-                var qtd = parseInt(rawQtd);
-                var preco = 0;
-
-                if (typeof rawPreco === 'number') {
-                    preco = rawPreco;
-                } else if (typeof rawPreco === 'string') {
-                    preco = parseFloat(rawPreco.replace(/\R\$/g, '').replace(/\./g, '').replace(',', '.').trim());
-                }
-
-                if (ticker && !isNaN(qtd) && !isNaN(preco) && preco > 0) {
-                    transacoes.push({
-                        Data: dataFormatada,
-                        Tipo: tipo,
-                        Ticker: ticker,
-                        Quantidade: qtd,
-                        Preco: preco
-                    });
-                } else {
-                    errosParsing++;
-                }
-            }
-
             if (transacoes.length === 0) {
-                showToast('Nenhuma transação válida encontrada após o cabeçalho.', 'error');
+                showToast('Nenhuma transação válida encontrada após os cabeçalhos.', 'error');
                 resetBtn();
                 return;
             }

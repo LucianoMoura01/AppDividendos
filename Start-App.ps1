@@ -94,6 +94,9 @@ try {
                     "^/api/transacao$" {
                         if ($method -eq "POST") { Handle-PostTransacao -Response $response -Request $request }
                     }
+                    "^/api/importar-b3$" {
+                        if ($method -eq "POST") { Handle-PostImportarB3 -Response $response -Request $request }
+                    }
                     "^/api/historico$" {
                         if ($method -eq "GET") { Handle-GetHistorico -Response $response }
                     }

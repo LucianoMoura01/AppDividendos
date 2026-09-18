@@ -37,6 +37,7 @@ var API = (function() {
         // Transações
         getHistorico: function() { return request('GET', '/api/historico'); },
         postTransacao: function(data) { return request('POST', '/api/transacao', data); },
+        postImportarB3: function(data) { return request('POST', '/api/importar-b3', data); },
 
         // Metas
         getMetas: function() { return request('GET', '/api/metas'); },

@@ -271,6 +271,97 @@ function Handle-PostTransacao {
     }
 }
 
+function Handle-PostImportarB3 {
+    param($Response, $Request)
+    $body = Read-RequestBody $Request
+
+    if (-not $body.transacoes -or $body.transacoes -isnot [System.Array]) {
+        Send-JsonResponse -Response $Response -Data @{ erro = "O payload deve conter um array 'transacoes'." } -StatusCode 400
+        return
+    }
+
+    $historico = Read-JsonFile "historico.json"
+    if ($historico -isnot [System.Array]) { $historico = @($historico) }
+
+    $carteira = Read-JsonFile "carteira.json"
+    if ($carteira -isnot [System.Array]) { $carteira = @($carteira) }
+
+    $importados = 0
+    $ignorados = 0
+
+    foreach ($tx in $body.transacoes) {
+        $ticker = $tx.Ticker.ToString().ToUpper()
+        $quantidade = [int]$tx.Quantidade
+        $preco = [decimal]$tx.Preco
+        $tipo = $tx.Tipo.ToString()
+        $data = $tx.Data.ToString()
+
+        # Verificar duplicidade
+        $duplicata = $historico | Where-Object {
+            $_.Ticker -eq $ticker -and $_.Data -eq $data -and [int]$_.Quantidade -eq $quantidade -and [decimal]$_.Preco -eq $preco -and $_.Tipo -eq $tipo
+        }
+
+        if ($duplicata) {
+            $ignorados++
+            continue
+        }
+
+        # Registrar transação
+        $novaTransacao = [PSCustomObject]@{
+            Id = [guid]::NewGuid().ToString().Substring(0, 8)
+            Tipo = $tipo
+            Ticker = $ticker
+            Quantidade = $quantidade
+            Preco = [math]::Round($preco, 2)
+            Data = $data
+            RegistradoEm = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+        }
+        $historico = @($historico) + @($novaTransacao)
+        $importados++
+
+        # Atualizar carteira
+        $ativoExistente = $carteira | Where-Object { $_.Ticker -eq $ticker }
+
+        if ($tipo -eq "Compra") {
+            if ($ativoExistente) {
+                $valorTotalAntigo = $ativoExistente.Quantidade * $ativoExistente.PrecoMedio
+                $valorTotalNovo = $quantidade * $preco
+                $novaQuantidade = $ativoExistente.Quantidade + $quantidade
+                $novoPrecoMedio = ($valorTotalAntigo + $valorTotalNovo) / $novaQuantidade
+                $ativoExistente.Quantidade = $novaQuantidade
+                $ativoExistente.PrecoMedio = [math]::Round($novoPrecoMedio, 2)
+            } else {
+                $novoAtivo = [PSCustomObject]@{
+                    Ticker = $ticker
+                    Quantidade = $quantidade
+                    PrecoMedio = [math]::Round($preco, 2)
+                }
+                $carteira = @($carteira) + @($novoAtivo)
+            }
+        }
+        elseif ($tipo -eq "Venda") {
+            if ($ativoExistente) {
+                $ativoExistente.Quantidade = $ativoExistente.Quantidade - $quantidade
+                if ($ativoExistente.Quantidade -le 0) {
+                    $carteira = @($carteira | Where-Object { $_.Ticker -ne $ticker })
+                }
+            }
+        }
+    }
+
+    if ($importados -gt 0) {
+        Write-JsonFile "historico.json" $historico
+        Write-JsonFile "carteira.json" $carteira
+    }
+
+    Send-JsonResponse -Response $Response -Data @{
+        sucesso = $true
+        importados = $importados
+        ignorados = $ignorados
+        mensagem = "Importação concluída. $importados inseridos, $ignorados ignorados (duplicatas)."
+    }
+}
+
 function Handle-GetHistorico {
     param($Response)
     $historico = Read-JsonFile "historico.json"

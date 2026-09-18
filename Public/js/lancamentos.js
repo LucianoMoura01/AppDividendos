@@ -43,6 +43,16 @@ function renderLancamentos(container) {
             '</div>' +
         '</div>' +
 
+        // Importação em Lote B3
+        '<div class="form-card mb-24">' +
+            '<h3>&#128229; Importar Planilha da B3</h3>' +
+            '<p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:16px">Copie as colunas (Data, Tipo, Ativo, Quantidade, Preço) do Excel do Portal do Investidor da B3 e cole abaixo. Nós ignoraremos transações duplicadas automaticamente.</p>' +
+            '<div class="form-group mb-16">' +
+                '<textarea id="txB3Data" rows="6" placeholder="Cole os dados copiados do Excel aqui..." style="background:var(--bg-input);border:1px solid var(--border-input);border-radius:var(--radius-xs);padding:10px;color:var(--text-primary);width:100%;font-family:inherit;resize:vertical;"></textarea>' +
+            '</div>' +
+            '<button class="btn btn-success" id="btnImportarB3">&#128229; Processar e Importar</button>' +
+        '</div>' +
+
         // Histórico
         '<div class="section-title">&#128203; Hist&oacute;rico de Transa&ccedil;&otilde;es</div>' +
         '<div class="table-wrapper">' +
@@ -62,6 +72,7 @@ function renderLancamentos(container) {
     // Event listeners
     document.getElementById('btnRegistrar').addEventListener('click', registrarTransacao);
     document.getElementById('btnLimpar').addEventListener('click', limparForm);
+    document.getElementById('btnImportarB3').addEventListener('click', importarB3);
 
     // Auto-uppercase ticker
     document.getElementById('txTicker').addEventListener('input', function() {
@@ -149,5 +160,94 @@ function loadHistorico() {
         tbody.innerHTML = html;
     }).catch(function() {
         document.getElementById('tblHistorico').innerHTML = '<tr><td colspan="7" class="text-center" style="color:var(--accent-red)">Erro ao carregar hist&oacute;rico</td></tr>';
+    });
+}
+
+function importarB3() {
+    var rawText = document.getElementById('txB3Data').value.trim();
+    if (!rawText) {
+        showToast('Cole os dados na área de texto primeiro.', 'error');
+        return;
+    }
+
+    // Parse simple TSV / CSV
+    var lines = rawText.split('\n');
+    var transacoes = [];
+    var errosParsing = 0;
+
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (!line) continue;
+
+        // Try to separate by tab (Excel paste) or comma/semicolon (CSV)
+        var parts = line.split('\t');
+        if (parts.length < 5) parts = line.split(';');
+        if (parts.length < 5) parts = line.split(',');
+
+        // Skip header lines broadly
+        if (line.toLowerCase().indexOf('data') !== -1 && line.toLowerCase().indexOf('ativo') !== -1) continue;
+        if (parts.length < 5) continue;
+
+        try {
+            var rawData = parts[0].trim(); // expected DD/MM/YYYY
+            var dataFormatada = rawData;
+            if (rawData.indexOf('/') !== -1) {
+                var dParts = rawData.split('/');
+                if (dParts.length === 3) {
+                    dataFormatada = dParts[2] + '-' + dParts[1] + '-' + dParts[0]; // YYYY-MM-DD
+                }
+            }
+
+            var rawTipo = parts[1].trim().toLowerCase();
+            var tipo = 'Compra';
+            if (rawTipo.indexOf('venda') !== -1 || rawTipo === 'v') tipo = 'Venda';
+
+            var ticker = parts[2].trim().toUpperCase();
+
+            // Handle quantities and prices that might use comma as decimal separator or have dots for thousands
+            var rawQtd = parts[3].replace(/\./g, '').replace(',', '.');
+            var rawPreco = parts[4].replace(/\./g, '').replace(',', '.');
+
+            var qtd = parseInt(rawQtd);
+            var preco = parseFloat(rawPreco);
+
+            if (ticker && !isNaN(qtd) && !isNaN(preco)) {
+                transacoes.push({
+                    Data: dataFormatada,
+                    Tipo: tipo,
+                    Ticker: ticker,
+                    Quantidade: qtd,
+                    Preco: preco
+                });
+            } else {
+                errosParsing++;
+            }
+        } catch (e) {
+            errosParsing++;
+        }
+    }
+
+    if (transacoes.length === 0) {
+        showToast('Não foi possível identificar nenhuma transação válida no texto.', 'error');
+        return;
+    }
+
+    var btn = document.getElementById('btnImportarB3');
+    btn.disabled = true;
+    btn.innerHTML = '<div class="spinner" style="width:16px;height:16px;border-width:2px"></div> Processando...';
+
+    API.postImportarB3({ transacoes: transacoes }).then(function(res) {
+        showToast(res.mensagem, 'success');
+        if (errosParsing > 0) {
+            showToast('Aviso: ' + errosParsing + ' linhas não puderam ser lidas.', 'warning');
+        }
+        document.getElementById('txB3Data').value = '';
+        loadHistorico();
+    }).catch(function(err) {
+        var msg = (err && err.data && err.data.erro) ? err.data.erro : 'Erro na importação.';
+        showToast(msg, 'error');
+    }).finally(function() {
+        btn.disabled = false;
+        btn.innerHTML = '&#128229; Processar e Importar';
     });
 }

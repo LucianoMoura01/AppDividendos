@@ -1,4 +1,4 @@
-[
+﻿[
     {
         "Ticker":  "MXRF11",
         "Quantidade":  15,
@@ -10,7 +10,7 @@
         "Ticker":  "PETR4",
         "Quantidade":  100,
         "PrecoMedio":  38.5,
-        "PrecoAtual":  48.48,
-        "ValorTotal":  4848.00
+        "PrecoAtual":  48.57,
+        "ValorTotal":  4857.00
     }
 ]

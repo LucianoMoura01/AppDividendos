@@ -1,0 +1,12 @@
+[
+    {
+        "Ticker":  "MXRF11",
+        "Quantidade":  15,
+        "PrecoMedio":  10.37
+    },
+    {
+        "Ticker":  "PETR4",
+        "Quantidade":  100,
+        "PrecoMedio":  38.5
+    }
+]

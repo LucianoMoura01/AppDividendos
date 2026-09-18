@@ -46,11 +46,11 @@ function renderLancamentos(container) {
         // Importação em Lote B3
         '<div class="form-card mb-24">' +
             '<h3>&#128229; Importar Planilha da B3</h3>' +
-            '<p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:16px">Copie as colunas (Data, Tipo, Ativo, Quantidade, Preço) do Excel do Portal do Investidor da B3 e cole abaixo. Nós ignoraremos transações duplicadas automaticamente.</p>' +
+            '<p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:16px">Selecione o arquivo Excel (.xlsx) ou CSV baixado do Portal do Investidor da B3. N&oacute;s leremos o arquivo localmente e ignoraremos transa&ccedil;&otilde;es duplicadas automaticamente.</p>' +
             '<div class="form-group mb-16">' +
-                '<textarea id="txB3Data" rows="6" placeholder="Cole os dados copiados do Excel aqui..." style="background:var(--bg-input);border:1px solid var(--border-input);border-radius:var(--radius-xs);padding:10px;color:var(--text-primary);width:100%;font-family:inherit;resize:vertical;"></textarea>' +
+                '<input type="file" id="fileB3" accept=".xlsx, .xls, .csv" style="padding: 12px; background: rgba(0,0,0,0.2); cursor: pointer;">' +
             '</div>' +
-            '<button class="btn btn-success" id="btnImportarB3">&#128229; Processar e Importar</button>' +
+            '<button class="btn btn-success" id="btnImportarB3">&#128229; Enviar e Importar</button>' +
         '</div>' +
 
         // Histórico
@@ -164,90 +164,153 @@ function loadHistorico() {
 }
 
 function importarB3() {
-    var rawText = document.getElementById('txB3Data').value.trim();
-    if (!rawText) {
-        showToast('Cole os dados na área de texto primeiro.', 'error');
+    var fileInput = document.getElementById('fileB3');
+    if (!fileInput.files.length) {
+        showToast('Selecione um arquivo da B3 primeiro.', 'error');
         return;
     }
 
-    // Parse simple TSV / CSV
-    var lines = rawText.split('\n');
-    var transacoes = [];
-    var errosParsing = 0;
-
-    for (var i = 0; i < lines.length; i++) {
-        var line = lines[i].trim();
-        if (!line) continue;
-
-        // Try to separate by tab (Excel paste) or comma/semicolon (CSV)
-        var parts = line.split('\t');
-        if (parts.length < 5) parts = line.split(';');
-        if (parts.length < 5) parts = line.split(',');
-
-        // Skip header lines broadly
-        if (line.toLowerCase().indexOf('data') !== -1 && line.toLowerCase().indexOf('ativo') !== -1) continue;
-        if (parts.length < 5) continue;
-
-        try {
-            var rawData = parts[0].trim(); // expected DD/MM/YYYY
-            var dataFormatada = rawData;
-            if (rawData.indexOf('/') !== -1) {
-                var dParts = rawData.split('/');
-                if (dParts.length === 3) {
-                    dataFormatada = dParts[2] + '-' + dParts[1] + '-' + dParts[0]; // YYYY-MM-DD
-                }
-            }
-
-            var rawTipo = parts[1].trim().toLowerCase();
-            var tipo = 'Compra';
-            if (rawTipo.indexOf('venda') !== -1 || rawTipo === 'v') tipo = 'Venda';
-
-            var ticker = parts[2].trim().toUpperCase();
-
-            // Handle quantities and prices that might use comma as decimal separator or have dots for thousands
-            var rawQtd = parts[3].replace(/\./g, '').replace(',', '.');
-            var rawPreco = parts[4].replace(/\./g, '').replace(',', '.');
-
-            var qtd = parseInt(rawQtd);
-            var preco = parseFloat(rawPreco);
-
-            if (ticker && !isNaN(qtd) && !isNaN(preco)) {
-                transacoes.push({
-                    Data: dataFormatada,
-                    Tipo: tipo,
-                    Ticker: ticker,
-                    Quantidade: qtd,
-                    Preco: preco
-                });
-            } else {
-                errosParsing++;
-            }
-        } catch (e) {
-            errosParsing++;
-        }
-    }
-
-    if (transacoes.length === 0) {
-        showToast('Não foi possível identificar nenhuma transação válida no texto.', 'error');
-        return;
-    }
+    var file = fileInput.files[0];
+    var reader = new FileReader();
 
     var btn = document.getElementById('btnImportarB3');
     btn.disabled = true;
-    btn.innerHTML = '<div class="spinner" style="width:16px;height:16px;border-width:2px"></div> Processando...';
+    btn.innerHTML = '<div class="spinner" style="width:16px;height:16px;border-width:2px"></div> Lendo arquivo...';
 
-    API.postImportarB3({ transacoes: transacoes }).then(function(res) {
-        showToast(res.mensagem, 'success');
-        if (errosParsing > 0) {
-            showToast('Aviso: ' + errosParsing + ' linhas não puderam ser lidas.', 'warning');
-        }
-        document.getElementById('txB3Data').value = '';
-        loadHistorico();
-    }).catch(function(err) {
-        var msg = (err && err.data && err.data.erro) ? err.data.erro : 'Erro na importação.';
-        showToast(msg, 'error');
-    }).finally(function() {
+    function resetBtn() {
         btn.disabled = false;
-        btn.innerHTML = '&#128229; Processar e Importar';
-    });
+        btn.innerHTML = '&#128229; Enviar e Importar';
+    }
+
+    reader.onload = function(e) {
+        try {
+            var data = new Uint8Array(e.target.result);
+            // Read Excel/CSV using SheetJS
+            var workbook = XLSX.read(data, {type: 'array', cellDates: true});
+            var firstSheet = workbook.SheetNames[0];
+            var worksheet = workbook.Sheets[firstSheet];
+
+            // Get array of arrays with raw values
+            var rows = XLSX.utils.sheet_to_json(worksheet, {header: 1, raw: true, defval: null});
+
+            var headerRowIdx = -1;
+            var colMap = { data: -1, tipo: -1, ativo: -1, qtd: -1, preco: -1 };
+
+            // Find the header row
+            for (var i = 0; i < Math.min(20, rows.length); i++) {
+                var row = rows[i];
+                if (!row) continue;
+                
+                var rowStr = row.map(function(c) { return String(c || '').toLowerCase().trim(); });
+                var ativoIdx = rowStr.indexOf('código de negociação');
+                if (ativoIdx === -1) ativoIdx = rowStr.indexOf('ativo');
+                if (ativoIdx === -1) ativoIdx = rowStr.indexOf('produto');
+
+                if (ativoIdx !== -1) {
+                    headerRowIdx = i;
+                    colMap.ativo = ativoIdx;
+                    
+                    for (var j = 0; j < rowStr.length; j++) {
+                        var c = rowStr[j];
+                        if (c.indexOf('data') !== -1) colMap.data = j;
+                        if (c.indexOf('tipo') !== -1 || c.indexOf('movimentação') !== -1) colMap.tipo = j;
+                        if (c === 'quantidade' || c === 'qtd') colMap.qtd = j;
+                        if (c.indexOf('preço') !== -1 || c.indexOf('preco') !== -1) colMap.preco = j;
+                    }
+                    break;
+                }
+            }
+
+            if (headerRowIdx === -1 || colMap.ativo === -1 || colMap.qtd === -1) {
+                showToast('Não foi possível identificar as colunas (Ativo, Quantidade) no arquivo.', 'error');
+                resetBtn();
+                return;
+            }
+
+            var transacoes = [];
+            var errosParsing = 0;
+
+            for (var k = headerRowIdx + 1; k < rows.length; k++) {
+                var r = rows[k];
+                if (!r || r.length === 0) continue;
+
+                var rawData = r[colMap.data];
+                var rawTipo = String(r[colMap.tipo] || '').trim().toLowerCase();
+                var ticker = String(r[colMap.ativo] || '').trim().toUpperCase();
+                var rawQtd = r[colMap.qtd];
+                var rawPreco = r[colMap.preco];
+
+                if (!ticker || !rawQtd) continue;
+
+                // Format Date
+                var dataFormatada = new Date().toISOString().split('T')[0];
+                if (rawData instanceof Date) {
+                    dataFormatada = rawData.toISOString().split('T')[0];
+                } else if (typeof rawData === 'string' && rawData.indexOf('/') !== -1) {
+                    var dParts = rawData.split('/');
+                    if (dParts.length === 3) {
+                        // Assume DD/MM/YYYY
+                        dataFormatada = dParts[2].split(' ')[0] + '-' + dParts[1] + '-' + dParts[0];
+                    }
+                }
+
+                var tipo = 'Compra';
+                if (rawTipo.indexOf('venda') !== -1 || rawTipo === 'v') tipo = 'Venda';
+
+                var qtd = parseInt(rawQtd);
+                var preco = 0;
+
+                if (typeof rawPreco === 'number') {
+                    preco = rawPreco;
+                } else if (typeof rawPreco === 'string') {
+                    preco = parseFloat(rawPreco.replace(/\R\$/g, '').replace(/\./g, '').replace(',', '.').trim());
+                }
+
+                if (ticker && !isNaN(qtd) && !isNaN(preco) && preco > 0) {
+                    transacoes.push({
+                        Data: dataFormatada,
+                        Tipo: tipo,
+                        Ticker: ticker,
+                        Quantidade: qtd,
+                        Preco: preco
+                    });
+                } else {
+                    errosParsing++;
+                }
+            }
+
+            if (transacoes.length === 0) {
+                showToast('Nenhuma transação válida encontrada após o cabeçalho.', 'error');
+                resetBtn();
+                return;
+            }
+
+            btn.innerHTML = '<div class="spinner" style="width:16px;height:16px;border-width:2px"></div> Importando...';
+            API.postImportarB3({ transacoes: transacoes }).then(function(res) {
+                showToast(res.mensagem, 'success');
+                if (errosParsing > 0) {
+                    showToast('Aviso: ' + errosParsing + ' linhas não puderam ser lidas.', 'warning');
+                }
+                document.getElementById('fileB3').value = '';
+                loadHistorico();
+            }).catch(function(err) {
+                var msg = (err && err.data && err.data.erro) ? err.data.erro : 'Erro na importação.';
+                showToast(msg, 'error');
+            }).finally(function() {
+                resetBtn();
+            });
+
+        } catch (ex) {
+            console.error(ex);
+            showToast('Erro ao processar arquivo. Verifique se é uma planilha válida.', 'error');
+            resetBtn();
+        }
+    };
+
+    reader.onerror = function() {
+        showToast('Erro de leitura do arquivo no navegador.', 'error');
+        resetBtn();
+    };
+
+    reader.readAsArrayBuffer(file);
 }

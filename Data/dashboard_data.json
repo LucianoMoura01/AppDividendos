@@ -3,14 +3,14 @@
         "Ticker":  "MXRF11",
         "Quantidade":  15,
         "PrecoMedio":  10.37,
-        "PrecoAtual":  9.07,
-        "ValorTotal":  136.05
+        "PrecoAtual":  9.03,
+        "ValorTotal":  135.45
     },
     {
         "Ticker":  "PETR4",
         "Quantidade":  100,
         "PrecoMedio":  38.5,
-        "PrecoAtual":  48.57,
-        "ValorTotal":  4857.00
+        "PrecoAtual":  48.53,
+        "ValorTotal":  4853.00
     }
 ]

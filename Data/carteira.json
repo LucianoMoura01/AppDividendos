@@ -1,137 +1,17 @@
 ﻿[
     {
+        "Ticker":  "VGIR11",
+        "Quantidade":  7,
+        "PrecoMedio":  9.57
+    },
+    {
         "Ticker":  "VGHF11",
         "Quantidade":  7,
-        "PrecoMedio":  5.55
-    },
-    {
-        "Ticker":  "VGIR11",
-        "Quantidade":  19,
-        "PrecoMedio":  9.82
-    },
-    {
-        "Ticker":  "PORD11",
-        "Quantidade":  4,
-        "PrecoMedio":  47.13
-    },
-    {
-        "Ticker":  "MXRF11",
-        "Quantidade":  11,
-        "PrecoMedio":  10.42
-    },
-    {
-        "Ticker":  "KLBN3",
-        "Quantidade":  8,
-        "PrecoMedio":  4.13
+        "PrecoMedio":  5.04
     },
     {
         "Ticker":  "KLBN4",
-        "Quantidade":  6,
-        "PrecoMedio":  4.10
-    },
-    {
-        "Ticker":  "AAZQ11",
-        "Quantidade":  8,
-        "PrecoMedio":  9.42
-    },
-    {
-        "Ticker":  "RBRR11",
-        "Quantidade":  1,
-        "PrecoMedio":  89.9
-    },
-    {
-        "Ticker":  "SANB3",
         "Quantidade":  2,
-        "PrecoMedio":  13.68
-    },
-    {
-        "Ticker":  "FIGS11",
-        "Quantidade":  1,
-        "PrecoMedio":  46.86
-    },
-    {
-        "Ticker":  "KLBN11",
-        "Quantidade":  1,
-        "PrecoMedio":  19.29
-    },
-    {
-        "Ticker":  "XPCM11",
-        "Quantidade":  2,
-        "PrecoMedio":  17.70
-    },
-    {
-        "Ticker":  "AMER3",
-        "Quantidade":  5,
-        "PrecoMedio":  0.79
-    },
-    {
-        "Ticker":  "TAEE3",
-        "Quantidade":  2,
-        "PrecoMedio":  12.18
-    },
-    {
-        "Ticker":  "CMIN3",
-        "Quantidade":  19,
-        "PrecoMedio":  3.88
-    },
-    {
-        "Ticker":  "BBAS3",
-        "Quantidade":  3,
-        "PrecoMedio":  36.46
-    },
-    {
-        "Ticker":  "IRDM11",
-        "Quantidade":  2,
-        "PrecoMedio":  99.93
-    },
-    {
-        "Ticker":  "KISU11",
-        "Quantidade":  3,
-        "PrecoMedio":  8.35
-    },
-    {
-        "Ticker":  "IRBR3",
-        "Quantidade":  6,
-        "PrecoMedio":  1.11
-    },
-    {
-        "Ticker":  "BLMR11",
-        "Quantidade":  3,
-        "PrecoMedio":  7.76
-    },
-    {
-        "Ticker":  "BRCR11",
-        "Quantidade":  1,
-        "PrecoMedio":  69.89
-    },
-    {
-        "Ticker":  "GGBR4",
-        "Quantidade":  1,
-        "PrecoMedio":  25.34
-    },
-    {
-        "Ticker":  "PQAG11",
-        "Quantidade":  1,
-        "PrecoMedio":  55.95
-    },
-    {
-        "Ticker":  "TAEE4",
-        "Quantidade":  1,
-        "PrecoMedio":  12.99
-    },
-    {
-        "Ticker":  "ITSA4",
-        "Quantidade":  1,
-        "PrecoMedio":  9.4
-    },
-    {
-        "Ticker":  "MGLU3",
-        "Quantidade":  1,
-        "PrecoMedio":  4.3
-    },
-    {
-        "Ticker":  "BRML3",
-        "Quantidade":  1,
-        "PrecoMedio":  8.64
+        "PrecoMedio":  3.86
     }
 ]

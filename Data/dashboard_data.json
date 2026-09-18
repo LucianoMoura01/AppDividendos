@@ -1,191 +1,23 @@
 ﻿[
     {
+        "Ticker":  "VGIR11",
+        "Quantidade":  7,
+        "PrecoMedio":  9.57,
+        "PrecoAtual":  9.65,
+        "ValorTotal":  67.55
+    },
+    {
         "Ticker":  "VGHF11",
         "Quantidade":  7,
-        "PrecoMedio":  5.55,
+        "PrecoMedio":  5.04,
         "PrecoAtual":  5.06,
         "ValorTotal":  35.42
     },
     {
-        "Ticker":  "VGIR11",
-        "Quantidade":  19,
-        "PrecoMedio":  9.82,
-        "PrecoAtual":  9.65,
-        "ValorTotal":  183.35
-    },
-    {
-        "Ticker":  "PORD11",
-        "Quantidade":  4,
-        "PrecoMedio":  47.13,
-        "PrecoAtual":  8.24,
-        "ValorTotal":  32.96
-    },
-    {
-        "Ticker":  "MXRF11",
-        "Quantidade":  11,
-        "PrecoMedio":  10.42,
-        "PrecoAtual":  9.02,
-        "ValorTotal":  99.22
-    },
-    {
-        "Ticker":  "KLBN3",
-        "Quantidade":  8,
-        "PrecoMedio":  4.13,
-        "PrecoAtual":  4.05,
-        "ValorTotal":  32.40
-    },
-    {
         "Ticker":  "KLBN4",
-        "Quantidade":  6,
-        "PrecoMedio":  4.10,
+        "Quantidade":  2,
+        "PrecoMedio":  3.86,
         "PrecoAtual":  3.87,
-        "ValorTotal":  23.22
-    },
-    {
-        "Ticker":  "AAZQ11",
-        "Quantidade":  8,
-        "PrecoMedio":  9.42,
-        "PrecoAtual":  6.67,
-        "ValorTotal":  53.36
-    },
-    {
-        "Ticker":  "RBRR11",
-        "Quantidade":  1,
-        "PrecoMedio":  89.9,
-        "PrecoAtual":  69.56,
-        "ValorTotal":  69.56
-    },
-    {
-        "Ticker":  "SANB3",
-        "Quantidade":  2,
-        "PrecoMedio":  13.68,
-        "PrecoAtual":  14.71,
-        "ValorTotal":  29.42
-    },
-    {
-        "Ticker":  "FIGS11",
-        "Quantidade":  1,
-        "PrecoMedio":  46.86,
-        "PrecoAtual":  47.96,
-        "ValorTotal":  47.96
-    },
-    {
-        "Ticker":  "KLBN11",
-        "Quantidade":  1,
-        "PrecoMedio":  19.29,
-        "PrecoAtual":  19.57,
-        "ValorTotal":  19.57
-    },
-    {
-        "Ticker":  "XPCM11",
-        "Quantidade":  2,
-        "PrecoMedio":  17.70,
-        "PrecoAtual":  7.91,
-        "ValorTotal":  15.82
-    },
-    {
-        "Ticker":  "AMER3",
-        "Quantidade":  5,
-        "PrecoMedio":  0.79,
-        "PrecoAtual":  4.74,
-        "ValorTotal":  23.70
-    },
-    {
-        "Ticker":  "TAEE3",
-        "Quantidade":  2,
-        "PrecoMedio":  12.18,
-        "PrecoAtual":  13.65,
-        "ValorTotal":  27.30
-    },
-    {
-        "Ticker":  "CMIN3",
-        "Quantidade":  19,
-        "PrecoMedio":  3.88,
-        "PrecoAtual":  5.5,
-        "ValorTotal":  104.5
-    },
-    {
-        "Ticker":  "BBAS3",
-        "Quantidade":  3,
-        "PrecoMedio":  36.46,
-        "PrecoAtual":  22.79,
-        "ValorTotal":  68.37
-    },
-    {
-        "Ticker":  "IRDM11",
-        "Quantidade":  2,
-        "PrecoMedio":  99.93,
-        "PrecoAtual":  58.5,
-        "ValorTotal":  117.0
-    },
-    {
-        "Ticker":  "KISU11",
-        "Quantidade":  3,
-        "PrecoMedio":  8.35,
-        "PrecoAtual":  6.02,
-        "ValorTotal":  18.06
-    },
-    {
-        "Ticker":  "IRBR3",
-        "Quantidade":  6,
-        "PrecoMedio":  1.11,
-        "PrecoAtual":  61.51,
-        "ValorTotal":  369.06
-    },
-    {
-        "Ticker":  "BLMR11",
-        "Quantidade":  3,
-        "PrecoMedio":  7.76,
-        "PrecoAtual":  0.0,
-        "ValorTotal":  0.0
-    },
-    {
-        "Ticker":  "BRCR11",
-        "Quantidade":  1,
-        "PrecoMedio":  69.89,
-        "PrecoAtual":  41.5,
-        "ValorTotal":  41.5
-    },
-    {
-        "Ticker":  "GGBR4",
-        "Quantidade":  1,
-        "PrecoMedio":  25.34,
-        "PrecoAtual":  25.27,
-        "ValorTotal":  25.27
-    },
-    {
-        "Ticker":  "PQAG11",
-        "Quantidade":  1,
-        "PrecoMedio":  55.95,
-        "PrecoAtual":  53.56,
-        "ValorTotal":  53.56
-    },
-    {
-        "Ticker":  "TAEE4",
-        "Quantidade":  1,
-        "PrecoMedio":  12.99,
-        "PrecoAtual":  13.98,
-        "ValorTotal":  13.98
-    },
-    {
-        "Ticker":  "ITSA4",
-        "Quantidade":  1,
-        "PrecoMedio":  9.4,
-        "PrecoAtual":  14.11,
-        "ValorTotal":  14.11
-    },
-    {
-        "Ticker":  "MGLU3",
-        "Quantidade":  1,
-        "PrecoMedio":  4.3,
-        "PrecoAtual":  5.85,
-        "ValorTotal":  5.85
-    },
-    {
-        "Ticker":  "BRML3",
-        "Quantidade":  1,
-        "PrecoMedio":  8.64,
-        "PrecoAtual":  0,
-        "ValorTotal":  0
+        "ValorTotal":  7.74
     }
 ]

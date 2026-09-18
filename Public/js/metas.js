@@ -31,28 +31,10 @@ function renderMetas(container) {
             '</div>' +
         '</div>' +
 
-        // Bola de neve checker
+        // Bola de neve status
         '<div class="form-card mb-24">' +
-            '<h3>&#10052;&#65039; Simulador Bola de Neve</h3>' +
-            '<p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:16px">Informe o dividendo recebido por cota para verificar se o efeito bola de neve foi alcan&ccedil;ado.</p>' +
-            '<div class="form-grid">' +
-                '<div class="form-group">' +
-                    '<label>Ticker do Ativo</label>' +
-                    '<input type="text" id="snowTicker" placeholder="Ex: MXRF11">' +
-                '</div>' +
-                '<div class="form-group">' +
-                    '<label>Dividendo por Cota (R$)</label>' +
-                    '<input type="text" id="snowDiv" placeholder="Ex: 0.11">' +
-                '</div>' +
-                '<div class="form-group">' +
-                    '<label>Data do Dividendo</label>' +
-                    '<input type="date" id="snowData">' +
-                '</div>' +
-            '</div>' +
-            '<div class="btn-group">' +
-                '<button class="btn btn-success" id="btnCheckSnow">&#10052;&#65039; Checar Bola de Neve</button>' +
-                '<button class="btn btn-outline" id="btnRegistrarDiv">&#128190; Registrar Dividendo</button>' +
-            '</div>' +
+            '<h3>&#10052;&#65039; Efeito Bola de Neve (Autom&aacute;tico)</h3>' +
+            '<p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:16px">C&aacute;lculo autom&aacute;tico baseado no &uacute;ltimo dividendo recebido de cada ativo.</p>' +
             '<div id="snowResult" class="mt-24"></div>' +
         '</div>' +
 
@@ -65,14 +47,7 @@ function renderMetas(container) {
             '</table>' +
         '</div>';
 
-    // Set default date
-    var hoje = new Date().toISOString().split('T')[0];
-    document.getElementById('snowData').value = hoje;
-
-    // Auto-uppercase
-    document.getElementById('snowTicker').addEventListener('input', function() {
-        this.value = this.value.toUpperCase();
-    });
+    // Set default date not needed anymore since inputs are gone
 
     // Load metas
     API.getMetas().then(function(metas) {
@@ -86,8 +61,9 @@ function renderMetas(container) {
 
     // Events
     document.getElementById('btnSalvarMetas').addEventListener('click', salvarMetas);
-    document.getElementById('btnCheckSnow').addEventListener('click', checarSnowball);
-    document.getElementById('btnRegistrarDiv').addEventListener('click', registrarDividendo);
+    
+    // Load Automatic Snowball Global Status
+    loadSnowballGlobal();
 }
 
 function salvarMetas() {
@@ -101,67 +77,38 @@ function salvarMetas() {
     });
 }
 
-function checarSnowball() {
-    var ticker = document.getElementById('snowTicker').value.trim().toUpperCase();
-    if (!ticker) { showToast('Informe o ticker do ativo', 'error'); return; }
-
-    var divVal = document.getElementById('snowDiv').value.replace(',', '.');
-    if (!divVal || isNaN(parseFloat(divVal))) { showToast('Informe o dividendo por cota', 'error'); return; }
-
-    // First register the dividend, then check snowball
+function loadSnowballGlobal() {
     var resultDiv = document.getElementById('snowResult');
     resultDiv.innerHTML = '<div class="loading-overlay"><div class="spinner"></div></div>';
-
-    API.getSnowball(ticker).then(function(res) {
-        // Override with user-provided dividend value
-        var divPorCota = parseFloat(divVal);
-        var rendTotal = res.quantidade * divPorCota;
-        var alcancou = rendTotal >= res.precoCota;
-        var diferenca = rendTotal - res.precoCota;
-
-        if (alcancou) {
-            resultDiv.innerHTML =
-                '<div class="snowball-banner">' +
-                    '<div class="snowball-icon">&#10052;&#65039;&#127881;</div>' +
-                    '<div class="snowball-text">' +
-                        '<h4>BOLA DE NEVE ALCAN&Ccedil;ADA!</h4>' +
-                        '<p>Parab&eacute;ns, Luciano! Seus dividendos de <strong>' + ticker + '</strong> (R$ ' + rendTotal.toFixed(2).replace('.', ',') + ') j&aacute; compram uma nova cota (R$ ' + res.precoCota.toFixed(2).replace('.', ',') + ') e ainda sobram R$ ' + Math.abs(diferenca).toFixed(2).replace('.', ',') + '!</p>' +
-                    '</div>' +
-                '</div>';
-            showToast('❄️ BOLA DE NEVE alcançada com ' + ticker + '! Parabéns!', 'snowball');
-        } else {
-            resultDiv.innerHTML =
-                '<div class="snowball-banner" style="border-color: rgba(245, 158, 11, 0.3); background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(249, 115, 22, 0.08))">' +
-                    '<div class="snowball-icon">&#9203;</div>' +
-                    '<div class="snowball-text">' +
-                        '<h4>Continue aportando!</h4>' +
-                        '<p>Faltam <strong>R$ ' + Math.abs(diferenca).toFixed(2).replace('.', ',') + '</strong> em dividendos para o Efeito Bola de Neve em <strong>' + ticker + '</strong>. Rendimento atual: R$ ' + rendTotal.toFixed(2).replace('.', ',') + ' | Cota: R$ ' + res.precoCota.toFixed(2).replace('.', ',') + '</p>' +
-                    '</div>' +
-                '</div>';
+    
+    API.getCarteira().then(function(carteira) {
+        if (!carteira || carteira.length === 0) {
+            resultDiv.innerHTML = '<p class="text-center" style="color:var(--text-muted)">Sua carteira está vazia.</p>';
+            return;
         }
-    }).catch(function(err) {
-        var msg = (err && err.data && err.data.erro) ? err.data.erro : 'Erro ao checar bola de neve';
-        resultDiv.innerHTML = '<div style="color:var(--accent-red);padding:16px">' + msg + '</div>';
-    });
-}
-
-function registrarDividendo() {
-    var ticker = document.getElementById('snowTicker').value.trim().toUpperCase();
-    var divVal = document.getElementById('snowDiv').value.replace(',', '.');
-    var data = document.getElementById('snowData').value;
-
-    if (!ticker) { showToast('Informe o ticker', 'error'); return; }
-    if (!divVal || isNaN(parseFloat(divVal))) { showToast('Informe o dividendo por cota', 'error'); return; }
-
-    API.postDividendo({
-        Ticker: ticker,
-        ValorPorCota: parseFloat(divVal),
-        Data: data || new Date().toISOString().split('T')[0]
-    }).then(function(res) {
-        showToast('Dividendo de ' + ticker + ' registrado! Total: ' + fmtBRL(res.dividendo.TotalRecebido), 'success');
-        loadDividendos();
-    }).catch(function() {
-        showToast('Erro ao registrar dividendo', 'error');
+        var promises = carteira.map(function(c) {
+            return API.getSnowball(c.Ticker).catch(function(){ return null; });
+        });
+        Promise.all(promises).then(function(results) {
+            var html = '<div class="table-wrapper"><table><thead><tr><th>Ativo</th><th>Cotas</th><th>Últ. Dividendo</th><th>Rend. Total</th><th>Preço Cota</th><th>Status Bola de Neve</th></tr></thead><tbody>';
+            results.forEach(function(r) {
+                if(!r || !r.ticker) return;
+                var cls = r.alcancouBolaDeNeve ? 'green' : 'amber';
+                var txt = r.alcancouBolaDeNeve ? '&#10052;&#65039; Alcançado!' : ('Faltam ' + fmtBRL(Math.abs(r.diferenca)));
+                html += '<tr>' +
+                        '<td><strong>' + r.ticker + '</strong></td>' +
+                        '<td>' + r.quantidade + '</td>' +
+                        '<td>' + fmtBRL(r.dividendoPorCota) + '</td>' +
+                        '<td>' + fmtBRL(r.rendimentoTotal) + '</td>' +
+                        '<td>' + fmtBRL(r.precoCota) + '</td>' +
+                        '<td class="' + cls + '"><strong>' + txt + '</strong></td>' +
+                        '</tr>';
+            });
+            html += '</tbody></table></div>';
+            resultDiv.innerHTML = html;
+        }).catch(function() {
+            resultDiv.innerHTML = '<p style="color:var(--accent-red)">Erro ao calcular o Efeito Bola de Neve global.</p>';
+        });
     });
 }
 

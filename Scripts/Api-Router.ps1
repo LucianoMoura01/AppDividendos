@@ -287,8 +287,13 @@ function Handle-PostImportarB3 {
     $carteira = Read-JsonFile "carteira.json"
     if ($carteira -isnot [System.Array]) { $carteira = @($carteira) }
 
+    $divs = Read-JsonFile "dividendos.json"
+    if ($divs -isnot [System.Array]) { $divs = @($divs) }
+
     $importados = 0
     $ignorados = 0
+    $importadosDivs = 0
+    $ignoradosDivs = 0
 
     foreach ($tx in $body.transacoes) {
         $ticker = $tx.Ticker.ToString().ToUpper()
@@ -355,11 +360,49 @@ function Handle-PostImportarB3 {
         Write-JsonFile "carteira.json" $carteira
     }
 
+    if ($body.dividendos -and $body.dividendos -is [System.Array]) {
+        foreach ($div in $body.dividendos) {
+            $ticker = $div.Ticker.ToString().ToUpper()
+            $tipo = $div.Tipo.ToString()
+            $data = $div.Data.ToString()
+            $qtd = [int]$div.Quantidade
+            $valPorCota = [decimal]$div.ValorPorCota
+            $valTotal = [decimal]$div.ValorTotal
+
+            $duplicata = $divs | Where-Object {
+                $_.Ticker -eq $ticker -and $_.Data -eq $data -and $_.Tipo -eq $tipo -and [math]::Round([decimal]$_.TotalRecebido, 2) -eq [math]::Round($valTotal, 2)
+            }
+            if ($duplicata) {
+                $ignoradosDivs++
+                continue
+            }
+
+            $novoDiv = [PSCustomObject]@{
+                Id = [guid]::NewGuid().ToString().Substring(0, 8)
+                Ticker = $ticker
+                Tipo = $tipo
+                ValorPorCota = [math]::Round($valPorCota, 4)
+                Quantidade = $qtd
+                TotalRecebido = [math]::Round($valTotal, 2)
+                Data = $data
+                RegistradoEm = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
+            }
+            $divs = @($divs) + @($novoDiv)
+            $importadosDivs++
+        }
+    }
+
+    if ($importadosDivs -gt 0) {
+        Write-JsonFile "dividendos.json" $divs
+    }
+
     Send-JsonResponse -Response $Response -Data @{
         sucesso = $true
         importados = $importados
         ignorados = $ignorados
-        mensagem = "Importação concluída. $importados inseridos, $ignorados ignorados (duplicatas)."
+        importadosDivs = $importadosDivs
+        ignoradosDivs = $ignoradosDivs
+        mensagem = "Importação concluída. Transações: $importados inseridos. Dividendos: $importadosDivs inseridos."
     }
 }
 
@@ -459,10 +502,10 @@ function Handle-GetSnowball {
     $cached = $dashData | Where-Object { $_.Ticker -eq $Ticker }
     $precoCota = if ($cached) { $cached.PrecoAtual } else { 0 }
 
-    # Buscar dividendos desse ativo
+    # Buscar dividendos desse ativo ordenados por data
     $divs = Read-JsonFile "dividendos.json"
     if ($divs -isnot [System.Array]) { $divs = @($divs) }
-    $divsAtivo = @($divs | Where-Object { $_.Ticker -eq $Ticker })
+    $divsAtivo = @($divs | Where-Object { $_.Ticker -eq $Ticker } | Sort-Object Data)
 
     # Pegar o último dividendo registrado
     $ultimoDiv = if ($divsAtivo.Count -gt 0) { $divsAtivo[-1] } else { $null }

@@ -188,6 +188,7 @@ function importarB3() {
             // Read Excel/CSV using SheetJS
             var workbook = XLSX.read(data, {type: 'array', cellDates: true});
             var transacoes = [];
+            var dividendos = [];
             var errosParsing = 0;
             var abasLidas = 0;
 
@@ -200,7 +201,7 @@ function importarB3() {
                 if (!rows || rows.length === 0) continue;
 
                 var headerRowIdx = -1;
-                var colMap = { data: -1, tipo: -1, ativo: -1, qtd: -1, preco: -1, entradaSaida: -1 };
+                var colMap = { data: -1, tipo: -1, ativo: -1, qtd: -1, preco: -1, entradaSaida: -1, valorOp: -1 };
 
                 // Find the header row
                 for (var i = 0; i < Math.min(20, rows.length); i++) {
@@ -223,6 +224,7 @@ function importarB3() {
                             if (c === 'quantidade' || c === 'qtd') colMap.qtd = j;
                             if (c.indexOf('preço') !== -1 || c.indexOf('preco') !== -1) colMap.preco = j;
                             if (c.indexOf('entrada') !== -1 && c.indexOf('sa') !== -1) colMap.entradaSaida = j;
+                            if (c.indexOf('valor') !== -1) colMap.valorOp = j;
                         }
                         break;
                     }
@@ -249,18 +251,6 @@ function importarB3() {
 
                     if (ticker.indexOf(' - ') !== -1) {
                         ticker = ticker.split(' - ')[0].trim();
-                    }
-
-                    // Ignorar eventos de proventos
-                    if (rawTipo.indexOf('rendimento') !== -1 || 
-                        rawTipo.indexOf('juros') !== -1 || 
-                        rawTipo.indexOf('dividendo') !== -1 ||
-                        rawTipo.indexOf('fração') !== -1 ||
-                        rawTipo.indexOf('leilão') !== -1 ||
-                        rawTipo.indexOf('bonificação') !== -1 ||
-                        rawTipo.indexOf('subscrição') !== -1 ||
-                        rawTipo.indexOf('resgate') !== -1) {
-                        continue;
                     }
 
                     // Format Date
@@ -292,11 +282,47 @@ function importarB3() {
                     }
 
                     var preco = 0;
-
                     if (typeof rawPreco === 'number') {
                         preco = rawPreco;
                     } else if (typeof rawPreco === 'string') {
                         preco = parseFloat(rawPreco.replace(/[^0-9,-]/g, '').replace(',', '.'));
+                    }
+
+                    // Se for linha de dividendo, processamos aqui
+                    if (rawTipo.indexOf('rendimento') !== -1 || 
+                        rawTipo.indexOf('juros') !== -1 || 
+                        rawTipo.indexOf('dividendo') !== -1) {
+                        
+                        var rawValorOp = colMap.valorOp !== -1 ? r[colMap.valorOp] : null;
+                        var valorTotal = 0;
+                        if (typeof rawValorOp === 'number') valorTotal = rawValorOp;
+                        else if (typeof rawValorOp === 'string') valorTotal = parseFloat(rawValorOp.replace(/[^0-9,-]/g, '').replace(',', '.'));
+
+                        if (!isNaN(qtd) && (preco > 0 || valorTotal > 0)) {
+                            dividendos.push({
+                                Data: dataFormatada,
+                                Ticker: ticker,
+                                Tipo: rawTipo.toUpperCase(),
+                                Quantidade: qtd,
+                                ValorPorCota: preco > 0 ? preco : (valorTotal / qtd),
+                                ValorTotal: valorTotal > 0 ? valorTotal : (preco * qtd)
+                            });
+                        } else {
+                            errosParsing++;
+                        }
+                        continue;
+                    }
+
+                    // Ignorar eventos de proventos (já tratados) e outros não transacionais
+                    if (rawTipo.indexOf('rendimento') !== -1 || 
+                        rawTipo.indexOf('juros') !== -1 || 
+                        rawTipo.indexOf('dividendo') !== -1 ||
+                        rawTipo.indexOf('fração') !== -1 ||
+                        rawTipo.indexOf('leilão') !== -1 ||
+                        rawTipo.indexOf('bonificação') !== -1 ||
+                        rawTipo.indexOf('subscrição') !== -1 ||
+                        rawTipo.indexOf('resgate') !== -1) {
+                        continue;
                     }
 
                     if (ticker && !isNaN(qtd) && !isNaN(preco) && preco > 0) {
@@ -325,8 +351,13 @@ function importarB3() {
                 return;
             }
 
+            // A planilha B3 vem ordenada do mais recente para o mais antigo.
+            // Precisamos reverter para processar cronologicamente (do mais antigo para o mais novo).
+            transacoes.reverse();
+            dividendos.reverse();
+
             btn.innerHTML = '<div class="spinner" style="width:16px;height:16px;border-width:2px"></div> Importando...';
-            API.postImportarB3({ transacoes: transacoes }).then(function(res) {
+            API.postImportarB3({ transacoes: transacoes, dividendos: dividendos }).then(function(res) {
                 showToast(res.mensagem, 'success');
                 if (errosParsing > 0) {
                     showToast('Aviso: ' + errosParsing + ' linhas não puderam ser lidas.', 'warning');

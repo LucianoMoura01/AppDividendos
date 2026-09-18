@@ -1,1550 +1,542 @@
 ﻿[
     {
-        "Id":  "aff51a4a",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  3,
-        "Preco":  9.55,
-        "Data":  "2026-09-17",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "bc050a21",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  9.55,
-        "Data":  "2026-09-16",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "2ed7e8b0",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN4",
-        "Quantidade":  1,
-        "Preco":  3.87,
-        "Data":  "2026-09-15",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "ef93c100",
-        "Tipo":  "Compra",
-        "Ticker":  "VGHF11",
-        "Quantidade":  6,
-        "Preco":  5.04,
-        "Data":  "2026-09-15",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "38f9cebd",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.71,
-        "Data":  "2026-09-14",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "bb3cc5c5",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN4",
-        "Quantidade":  1,
-        "Preco":  3.86,
-        "Data":  "2026-09-11",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "cd9c91af",
-        "Tipo":  "Compra",
-        "Ticker":  "VGHF11",
-        "Quantidade":  1,
-        "Preco":  5.03,
-        "Data":  "2026-09-11",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "426286ba",
-        "Tipo":  "Venda",
-        "Ticker":  "VGHF11",
-        "Quantidade":  1,
-        "Preco":  7.32,
-        "Data":  "2025-11-12",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "7c83bb82",
-        "Tipo":  "Venda",
-        "Ticker":  "VGIR11",
-        "Quantidade":  12,
-        "Preco":  9.47,
-        "Data":  "2025-11-12",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "eaa0e71f",
-        "Tipo":  "Venda",
-        "Ticker":  "VGIR11",
-        "Quantidade":  7,
-        "Preco":  9.49,
-        "Data":  "2025-08-29",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "a367ef1b",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.46,
-        "Data":  "2025-08-20",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "2df46379",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.46,
-        "Data":  "2025-08-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "8648f115",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  5,
-        "Preco":  9.57,
-        "Data":  "2025-08-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "64fc91e7",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  9.57,
-        "Data":  "2025-07-30",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "2ead4c7c",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  9.57,
-        "Data":  "2025-07-28",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "10e71940",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.66,
-        "Data":  "2025-07-22",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "211c8337",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.7,
-        "Data":  "2025-07-10",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "7c4d48a0",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.53,
-        "Data":  "2025-07-01",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "30313290",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.51,
-        "Data":  "2025-06-24",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "d680af27",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.38,
-        "Data":  "2025-06-18",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "5b339a7b",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  9.35,
-        "Data":  "2025-06-16",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "fd3baf65",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.7,
-        "Data":  "2025-06-10",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "9ba62b75",
-        "Tipo":  "Venda",
-        "Ticker":  "MXRF11",
-        "Quantidade":  1,
-        "Preco":  9.01,
-        "Data":  "2025-02-19",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "491e1520",
-        "Tipo":  "Venda",
-        "Ticker":  "VGIR11",
-        "Quantidade":  7,
-        "Preco":  9.13,
-        "Data":  "2025-02-19",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "34c6a211",
-        "Tipo":  "Venda",
-        "Ticker":  "MXRF11",
-        "Quantidade":  5,
-        "Preco":  9.1,
-        "Data":  "2025-01-29",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "833fb47c",
-        "Tipo":  "Venda",
-        "Ticker":  "PORD11",
-        "Quantidade":  4,
-        "Preco":  7.51,
-        "Data":  "2025-01-24",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "ed8041e5",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.21,
-        "Data":  "2025-01-16",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "8d6e12c6",
-        "Tipo":  "Compra",
-        "Ticker":  "PORD11",
-        "Quantidade":  1,
-        "Preco":  7.66,
-        "Data":  "2025-01-07",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "75163a11",
-        "Tipo":  "Compra",
-        "Ticker":  "PORD11",
-        "Quantidade":  1,
-        "Preco":  7.77,
-        "Data":  "2024-12-30",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "7fcfb630",
-        "Tipo":  "Compra",
-        "Ticker":  "PORD11",
-        "Quantidade":  1,
-        "Preco":  6.95,
-        "Data":  "2024-12-19",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "f8e593fc",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  8.48,
-        "Data":  "2024-12-19",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "75304f5f",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  8.78,
-        "Data":  "2024-12-13",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "ac2d4d9b",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  1,
-        "Preco":  9.29,
-        "Data":  "2024-12-06",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "1b2995a2",
-        "Tipo":  "Compra",
-        "Ticker":  "PORD11",
-        "Quantidade":  1,
-        "Preco":  7.66,
-        "Data":  "2024-12-06",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "6598825d",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  9.38,
-        "Data":  "2024-11-22",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "bd4a06ea",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  2,
-        "Preco":  9.32,
-        "Data":  "2024-11-13",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "8390968b",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.61,
-        "Data":  "2024-11-13",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "087753b8",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  1,
-        "Preco":  9.35,
-        "Data":  "2024-11-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "d35c44da",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  2,
-        "Preco":  9.24,
-        "Data":  "2024-11-06",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "d46f3064",
-        "Tipo":  "Venda",
-        "Ticker":  "CMIN3",
-        "Quantidade":  4,
-        "Preco":  5.16,
-        "Data":  "2024-08-21",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "de0dff1e",
-        "Tipo":  "Venda",
-        "Ticker":  "KLBN3",
-        "Quantidade":  8,
-        "Preco":  4.39,
-        "Data":  "2024-07-25",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "3e457747",
-        "Tipo":  "Venda",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.99,
-        "Data":  "2024-07-25",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "01a87b55",
-        "Tipo":  "Venda",
-        "Ticker":  "MXRF11",
-        "Quantidade":  11,
-        "Preco":  10.25,
-        "Data":  "2024-05-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "1efb4712",
-        "Tipo":  "Venda",
-        "Ticker":  "VGIR11",
-        "Quantidade":  3,
-        "Preco":  9.77,
-        "Data":  "2024-05-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "05873eb4",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  2,
-        "Preco":  10.33,
-        "Data":  "2024-05-07",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "29d61257",
-        "Tipo":  "Compra",
-        "Ticker":  "VGHF11",
-        "Quantidade":  1,
-        "Preco":  8.6,
-        "Data":  "2024-04-26",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "21b912d4",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  9.72,
-        "Data":  "2024-04-24",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "e1f6e346",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  1,
-        "Preco":  5.46,
-        "Data":  "2024-03-27",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "ce64109e",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.76,
-        "Data":  "2024-03-21",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "649bd99e",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  2,
-        "Preco":  6.04,
-        "Data":  "2024-03-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "ec590770",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  8,
-        "Preco":  10.3,
-        "Data":  "2024-03-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "eb70ef22",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  1,
-        "Preco":  6.42,
-        "Data":  "2024-02-21",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "16fd2376",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN3",
-        "Quantidade":  8,
-        "Preco":  4.19,
-        "Data":  "2024-02-06",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "1d746aef",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  1,
-        "Preco":  10.54,
-        "Data":  "2024-02-06",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "50f22745",
-        "Tipo":  "Venda",
-        "Ticker":  "KLBN4",
-        "Quantidade":  6,
-        "Preco":  4.42,
-        "Data":  "2024-01-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "bcedef7e",
-        "Tipo":  "Venda",
-        "Ticker":  "CMIN3",
-        "Quantidade":  4,
-        "Preco":  7.82,
-        "Data":  "2024-01-04",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "968afb04",
-        "Tipo":  "Venda",
-        "Ticker":  "KLBN3",
-        "Quantidade":  3,
-        "Preco":  4.45,
-        "Data":  "2024-01-04",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "1f8c214d",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN4",
-        "Quantidade":  3,
-        "Preco":  4.43,
-        "Data":  "2024-01-04",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "c4c4a450",
-        "Tipo":  "Venda",
-        "Ticker":  "MXRF11",
-        "Quantidade":  6,
-        "Preco":  10.47,
-        "Data":  "2024-01-04",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "420e2243",
+        "Id":  "46b21602",
         "Tipo":  "Venda",
         "Ticker":  "TAEE3",
         "Quantidade":  1,
         "Preco":  12.81,
         "Data":  "2024-01-04",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "RegistradoEm":  "2026-09-18 16:01:24"
     },
     {
-        "Id":  "b5fec4d8",
+        "Id":  "c8926843",
         "Tipo":  "Venda",
-        "Ticker":  "CMIN3",
+        "Ticker":  "MXRF11",
+        "Quantidade":  6,
+        "Preco":  10.47,
+        "Data":  "2024-01-04",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "2ddbabc9",
+        "Tipo":  "Compra",
+        "Ticker":  "KLBN4",
         "Quantidade":  3,
-        "Preco":  7.16,
-        "Data":  "2023-12-19",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Preco":  4.43,
+        "Data":  "2024-01-04",
+        "RegistradoEm":  "2026-09-18 16:01:24"
     },
     {
-        "Id":  "10c6739a",
+        "Id":  "bfd18af9",
         "Tipo":  "Venda",
-        "Ticker":  "SANB3",
-        "Quantidade":  2,
-        "Preco":  15.1,
-        "Data":  "2023-12-19",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Ticker":  "KLBN3",
+        "Quantidade":  3,
+        "Preco":  4.45,
+        "Data":  "2024-01-04",
+        "RegistradoEm":  "2026-09-18 16:01:24"
     },
     {
-        "Id":  "9a179b2b",
+        "Id":  "0ad768c5",
         "Tipo":  "Venda",
-        "Ticker":  "AAZQ11",
-        "Quantidade":  8,
-        "Preco":  9.33,
-        "Data":  "2023-10-06",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "307dac75",
-        "Tipo":  "Venda",
-        "Ticker":  "VGIR11",
-        "Quantidade":  14,
-        "Preco":  9.84,
-        "Data":  "2023-10-06",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "9f3670bf",
-        "Tipo":  "Venda",
-        "Ticker":  "PORD11",
-        "Quantidade":  1,
-        "Preco":  90.34,
-        "Data":  "2023-09-06",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "6319fea8",
-        "Tipo":  "Venda",
-        "Ticker":  "RBRR11",
-        "Quantidade":  1,
-        "Preco":  89.9,
-        "Data":  "2023-09-06",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "f5b7835e",
-        "Tipo":  "Compra",
-        "Ticker":  "AAZQ11",
-        "Quantidade":  1,
-        "Preco":  9.22,
-        "Data":  "2023-09-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "8228416c",
-        "Tipo":  "Compra",
-        "Ticker":  "RBRR11",
-        "Quantidade":  1,
-        "Preco":  89.9,
-        "Data":  "2023-09-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "44c82484",
-        "Tipo":  "Compra",
-        "Ticker":  "SANB3",
-        "Quantidade":  1,
-        "Preco":  12.92,
-        "Data":  "2023-09-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "100564da",
-        "Tipo":  "Compra",
         "Ticker":  "CMIN3",
-        "Quantidade":  1,
-        "Preco":  4.05,
-        "Data":  "2023-08-23",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "e79be266",
-        "Tipo":  "Venda",
-        "Ticker":  "PORD11",
-        "Quantidade":  1,
-        "Preco":  89.79,
-        "Data":  "2023-08-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "b1632bc3",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  1,
-        "Preco":  4.33,
-        "Data":  "2023-08-07",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "2cd71b5e",
-        "Tipo":  "Compra",
-        "Ticker":  "SANB3",
-        "Quantidade":  1,
-        "Preco":  13.49,
-        "Data":  "2023-08-07",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "d19e8a27",
-        "Tipo":  "Compra",
-        "Ticker":  "AAZQ11",
-        "Quantidade":  1,
-        "Preco":  9.3,
-        "Data":  "2023-07-24",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "98dbb0e3",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  2,
-        "Preco":  4.15,
-        "Data":  "2023-07-24",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "6f7a499a",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  1,
-        "Preco":  4.24,
-        "Data":  "2023-07-11",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "b4163995",
-        "Tipo":  "Compra",
-        "Ticker":  "AAZQ11",
         "Quantidade":  4,
-        "Preco":  9.44,
-        "Data":  "2023-07-07",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Preco":  7.82,
+        "Data":  "2024-01-04",
+        "RegistradoEm":  "2026-09-18 16:01:24"
     },
     {
-        "Id":  "0f655145",
+        "Id":  "20bd2e15",
+        "Tipo":  "Venda",
+        "Ticker":  "KLBN4",
+        "Quantidade":  6,
+        "Preco":  4.42,
+        "Data":  "2024-01-08",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "c02dac32",
         "Tipo":  "Compra",
-        "Ticker":  "AAZQ11",
+        "Ticker":  "MXRF11",
         "Quantidade":  1,
-        "Preco":  9.41,
-        "Data":  "2023-07-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Preco":  10.54,
+        "Data":  "2024-02-06",
+        "RegistradoEm":  "2026-09-18 16:01:24"
     },
     {
-        "Id":  "8187054b",
-        "Tipo":  "Compra",
-        "Ticker":  "PORD11",
-        "Quantidade":  1,
-        "Preco":  88.5,
-        "Data":  "2023-07-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "5e5ccf63",
+        "Id":  "4cee829d",
         "Tipo":  "Compra",
         "Ticker":  "KLBN3",
-        "Quantidade":  1,
-        "Preco":  4.57,
-        "Data":  "2023-06-23",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Quantidade":  8,
+        "Preco":  4.19,
+        "Data":  "2024-02-06",
+        "RegistradoEm":  "2026-09-18 16:01:24"
     },
     {
-        "Id":  "47d79f50",
+        "Id":  "c1324cca",
+        "Tipo":  "Compra",
+        "Ticker":  "CMIN3",
+        "Quantidade":  1,
+        "Preco":  6.42,
+        "Data":  "2024-02-21",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "2a72c261",
         "Tipo":  "Compra",
         "Ticker":  "MXRF11",
-        "Quantidade":  1,
-        "Preco":  10.95,
-        "Data":  "2023-06-21",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Quantidade":  8,
+        "Preco":  10.3,
+        "Data":  "2024-03-05",
+        "RegistradoEm":  "2026-09-18 16:01:24"
     },
     {
-        "Id":  "2ed96aac",
+        "Id":  "08f96e1e",
         "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  1,
-        "Preco":  10.75,
-        "Data":  "2023-06-19",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Ticker":  "CMIN3",
+        "Quantidade":  2,
+        "Preco":  6.04,
+        "Data":  "2024-03-05",
+        "RegistradoEm":  "2026-09-18 16:01:24"
     },
     {
-        "Id":  "8ab738cc",
+        "Id":  "abf45a90",
         "Tipo":  "Compra",
         "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.76,
+        "Data":  "2024-03-21",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "118e74ac",
+        "Tipo":  "Compra",
+        "Ticker":  "CMIN3",
+        "Quantidade":  1,
+        "Preco":  5.46,
+        "Data":  "2024-03-27",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "f8312ea2",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  2,
+        "Preco":  9.72,
+        "Data":  "2024-04-24",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "ed402061",
+        "Tipo":  "Compra",
+        "Ticker":  "VGHF11",
+        "Quantidade":  1,
+        "Preco":  8.6,
+        "Data":  "2024-04-26",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "06787fd5",
+        "Tipo":  "Compra",
+        "Ticker":  "MXRF11",
+        "Quantidade":  2,
+        "Preco":  10.33,
+        "Data":  "2024-05-07",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "27716dee",
+        "Tipo":  "Venda",
+        "Ticker":  "VGIR11",
+        "Quantidade":  3,
+        "Preco":  9.77,
+        "Data":  "2024-05-08",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "67868720",
+        "Tipo":  "Venda",
+        "Ticker":  "MXRF11",
+        "Quantidade":  11,
+        "Preco":  10.25,
+        "Data":  "2024-05-08",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "4adfa8df",
+        "Tipo":  "Venda",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.99,
+        "Data":  "2024-07-25",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "306ebd44",
+        "Tipo":  "Venda",
+        "Ticker":  "KLBN3",
+        "Quantidade":  8,
+        "Preco":  4.39,
+        "Data":  "2024-07-25",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "c01ece01",
+        "Tipo":  "Venda",
+        "Ticker":  "CMIN3",
+        "Quantidade":  4,
+        "Preco":  5.16,
+        "Data":  "2024-08-21",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "cc9945d6",
+        "Tipo":  "Compra",
+        "Ticker":  "MXRF11",
+        "Quantidade":  2,
+        "Preco":  9.24,
+        "Data":  "2024-11-06",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "957efb91",
+        "Tipo":  "Compra",
+        "Ticker":  "MXRF11",
+        "Quantidade":  1,
+        "Preco":  9.35,
+        "Data":  "2024-11-08",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "2b1e0be7",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.61,
+        "Data":  "2024-11-13",
+        "RegistradoEm":  "2026-09-18 16:01:24"
+    },
+    {
+        "Id":  "aea93e33",
+        "Tipo":  "Compra",
+        "Ticker":  "MXRF11",
+        "Quantidade":  2,
+        "Preco":  9.32,
+        "Data":  "2024-11-13",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "6d302bb8",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  2,
+        "Preco":  9.38,
+        "Data":  "2024-11-22",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "58d68c5c",
+        "Tipo":  "Compra",
+        "Ticker":  "PORD11",
+        "Quantidade":  1,
+        "Preco":  7.66,
+        "Data":  "2024-12-06",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "837bcfa5",
+        "Tipo":  "Compra",
+        "Ticker":  "MXRF11",
         "Quantidade":  1,
         "Preco":  9.29,
-        "Data":  "2023-06-13",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Data":  "2024-12-06",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     },
     {
-        "Id":  "13e33d66",
+        "Id":  "0c744e5d",
         "Tipo":  "Compra",
         "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.28,
-        "Data":  "2023-06-09",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Quantidade":  2,
+        "Preco":  8.78,
+        "Data":  "2024-12-13",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     },
     {
-        "Id":  "cf2efe0f",
+        "Id":  "bca544e2",
         "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  4,
-        "Preco":  10.56,
-        "Data":  "2023-06-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Ticker":  "VGIR11",
+        "Quantidade":  2,
+        "Preco":  8.48,
+        "Data":  "2024-12-19",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     },
     {
-        "Id":  "1633dbbc",
+        "Id":  "a0b8de0b",
         "Tipo":  "Compra",
         "Ticker":  "PORD11",
         "Quantidade":  1,
-        "Preco":  84.98,
-        "Data":  "2023-06-05",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Preco":  6.95,
+        "Data":  "2024-12-19",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     },
     {
-        "Id":  "ec009fdc",
+        "Id":  "49bfacf2",
+        "Tipo":  "Compra",
+        "Ticker":  "PORD11",
+        "Quantidade":  1,
+        "Preco":  7.77,
+        "Data":  "2024-12-30",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "803f6124",
+        "Tipo":  "Compra",
+        "Ticker":  "PORD11",
+        "Quantidade":  1,
+        "Preco":  7.66,
+        "Data":  "2025-01-07",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "2d82a3dc",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.21,
+        "Data":  "2025-01-16",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "4230b873",
+        "Tipo":  "Venda",
+        "Ticker":  "PORD11",
+        "Quantidade":  4,
+        "Preco":  7.51,
+        "Data":  "2025-01-24",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "8b8a9dee",
+        "Tipo":  "Venda",
+        "Ticker":  "MXRF11",
+        "Quantidade":  5,
+        "Preco":  9.1,
+        "Data":  "2025-01-29",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "4b93beab",
+        "Tipo":  "Venda",
+        "Ticker":  "VGIR11",
+        "Quantidade":  7,
+        "Preco":  9.13,
+        "Data":  "2025-02-19",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "a208dd56",
+        "Tipo":  "Venda",
+        "Ticker":  "MXRF11",
+        "Quantidade":  1,
+        "Preco":  9.01,
+        "Data":  "2025-02-19",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "29848899",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.7,
+        "Data":  "2025-06-10",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "7c659c81",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  2,
+        "Preco":  9.35,
+        "Data":  "2025-06-16",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "bb17a15c",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.38,
+        "Data":  "2025-06-18",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "876ddfbf",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.51,
+        "Data":  "2025-06-24",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "9a7e3d5e",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.53,
+        "Data":  "2025-07-01",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "f1c1f1cc",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.7,
+        "Data":  "2025-07-10",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "d78ac9e7",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.66,
+        "Data":  "2025-07-22",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "ccbbb210",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  2,
+        "Preco":  9.57,
+        "Data":  "2025-07-28",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "85096b2d",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  2,
+        "Preco":  9.57,
+        "Data":  "2025-07-30",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "f2f4b5f2",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  5,
+        "Preco":  9.57,
+        "Data":  "2025-08-05",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "d0dae9eb",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.46,
+        "Data":  "2025-08-08",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "68e87691",
+        "Tipo":  "Compra",
+        "Ticker":  "VGIR11",
+        "Quantidade":  1,
+        "Preco":  9.46,
+        "Data":  "2025-08-20",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "82dfe5f5",
+        "Tipo":  "Venda",
+        "Ticker":  "VGIR11",
+        "Quantidade":  7,
+        "Preco":  9.49,
+        "Data":  "2025-08-29",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "e6092bb7",
+        "Tipo":  "Venda",
+        "Ticker":  "VGIR11",
+        "Quantidade":  12,
+        "Preco":  9.47,
+        "Data":  "2025-11-12",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "305a52ad",
+        "Tipo":  "Venda",
+        "Ticker":  "VGHF11",
+        "Quantidade":  1,
+        "Preco":  7.32,
+        "Data":  "2025-11-12",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "0698247c",
+        "Tipo":  "Compra",
+        "Ticker":  "VGHF11",
+        "Quantidade":  1,
+        "Preco":  5.03,
+        "Data":  "2026-09-11",
+        "RegistradoEm":  "2026-09-18 16:01:25"
+    },
+    {
+        "Id":  "ec33bd89",
         "Tipo":  "Compra",
         "Ticker":  "KLBN4",
         "Quantidade":  1,
-        "Preco":  4.33,
-        "Data":  "2023-05-24",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Preco":  3.86,
+        "Data":  "2026-09-11",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     },
     {
-        "Id":  "67d9b027",
+        "Id":  "6e61bfec",
         "Tipo":  "Compra",
         "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.32,
-        "Data":  "2023-05-22",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "fc267e19",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  9.32,
-        "Data":  "2023-05-16",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "d8948bd6",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.47,
-        "Data":  "2023-05-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "acb8f382",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  2,
-        "Preco":  4.49,
-        "Data":  "2023-05-04",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "e1b89305",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN3",
-        "Quantidade":  2,
-        "Preco":  3.87,
-        "Data":  "2023-05-04",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "40f1bb70",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  4,
-        "Preco":  9.48,
-        "Data":  "2023-05-04",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "349f35f9",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.48,
-        "Data":  "2023-04-17",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "d96d785d",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.3,
-        "Data":  "2023-04-10",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "b99ab68c",
-        "Tipo":  "Compra",
-        "Ticker":  "AAZQ11",
         "Quantidade":  1,
         "Preco":  9.71,
-        "Data":  "2023-03-22",
-        "RegistradoEm":  "2026-09-18 15:02:28"
+        "Data":  "2026-09-14",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     },
     {
-        "Id":  "25199820",
+        "Id":  "8a590e66",
         "Tipo":  "Compra",
-        "Ticker":  "KLBN4",
-        "Quantidade":  1,
-        "Preco":  3.6,
-        "Data":  "2023-03-20",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "b2207016",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  9.50,
-        "Data":  "2023-03-20",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "401b2992",
-        "Tipo":  "Venda",
-        "Ticker":  "AMER3",
-        "Quantidade":  5,
-        "Preco":  1.82,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "66e13410",
-        "Tipo":  "Venda",
-        "Ticker":  "BBAS3",
-        "Quantidade":  3,
-        "Preco":  38.95,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "0f69d1b8",
-        "Tipo":  "Venda",
-        "Ticker":  "BLMR11",
-        "Quantidade":  3,
-        "Preco":  6.36,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "fb305d71",
-        "Tipo":  "Venda",
-        "Ticker":  "BRCR11",
-        "Quantidade":  1,
-        "Preco":  56.76,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "26c78591",
-        "Tipo":  "Venda",
-        "Ticker":  "CMIN3",
-        "Quantidade":  19,
-        "Preco":  4.98,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "066bf7e4",
-        "Tipo":  "Venda",
-        "Ticker":  "FIGS11",
-        "Quantidade":  1,
-        "Preco":  46.04,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "281752e2",
-        "Tipo":  "Venda",
-        "Ticker":  "GGBR4",
-        "Quantidade":  1,
-        "Preco":  30.28,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "4de1d5c6",
-        "Tipo":  "Venda",
-        "Ticker":  "ITSA4",
-        "Quantidade":  1,
-        "Preco":  8.24,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "6ed0d1a1",
-        "Tipo":  "Venda",
-        "Ticker":  "KISU11",
-        "Quantidade":  3,
-        "Preco":  8.02,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "dcdafb0d",
-        "Tipo":  "Venda",
-        "Ticker":  "KLBN11",
-        "Quantidade":  1,
-        "Preco":  19.37,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "cb746685",
-        "Tipo":  "Venda",
-        "Ticker":  "KLBN3",
-        "Quantidade":  3,
-        "Preco":  3.87,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "9fe5c5b6",
-        "Tipo":  "Venda",
-        "Ticker":  "KLBN4",
-        "Quantidade":  3,
-        "Preco":  3.86,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "5e424461",
-        "Tipo":  "Venda",
-        "Ticker":  "MGLU3",
-        "Quantidade":  1,
-        "Preco":  4.32,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "c9b9e344",
-        "Tipo":  "Venda",
-        "Ticker":  "MXRF11",
-        "Quantidade":  4,
-        "Preco":  10.06,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "f0fc7ff5",
-        "Tipo":  "Venda",
-        "Ticker":  "PQAG11",
-        "Quantidade":  1,
-        "Preco":  52.51,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "605cddd7",
-        "Tipo":  "Venda",
-        "Ticker":  "SANB3",
-        "Quantidade":  1,
-        "Preco":  12.65,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "1b10cef4",
-        "Tipo":  "Venda",
-        "Ticker":  "TAEE3",
-        "Quantidade":  1,
-        "Preco":  11.98,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "d910c49f",
-        "Tipo":  "Venda",
-        "Ticker":  "TAEE4",
-        "Quantidade":  1,
-        "Preco":  12.03,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "7a7158ae",
-        "Tipo":  "Venda",
-        "Ticker":  "VGIR11",
-        "Quantidade":  16,
-        "Preco":  9.66,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:28"
-    },
-    {
-        "Id":  "82fe4bc5",
-        "Tipo":  "Venda",
-        "Ticker":  "XPCM11",
-        "Quantidade":  2,
-        "Preco":  15.98,
-        "Data":  "2023-02-08",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "f0685ac7",
-        "Tipo":  "Compra",
-        "Ticker":  "FIGS11",
-        "Quantidade":  1,
-        "Preco":  46.86,
-        "Data":  "2023-02-06",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "fc5b691d",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN11",
-        "Quantidade":  1,
-        "Preco":  19.29,
-        "Data":  "2023-02-06",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "d4560d0e",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN3",
-        "Quantidade":  1,
-        "Preco":  3.87,
-        "Data":  "2023-02-06",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "20e8877b",
-        "Tipo":  "Compra",
-        "Ticker":  "XPCM11",
-        "Quantidade":  1,
-        "Preco":  16.68,
-        "Data":  "2023-02-06",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "b0b02df0",
-        "Tipo":  "Compra",
-        "Ticker":  "AMER3",
-        "Quantidade":  5,
-        "Preco":  0.79,
-        "Data":  "2023-01-25",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "1b03a36b",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN3",
-        "Quantidade":  1,
-        "Preco":  4.1,
-        "Data":  "2023-01-20",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "86aa6318",
-        "Tipo":  "Venda",
-        "Ticker":  "IRDM11",
-        "Quantidade":  2,
-        "Preco":  93.2,
-        "Data":  "2023-01-12",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "d9ad3c52",
-        "Tipo":  "Compra",
-        "Ticker":  "TAEE3",
-        "Quantidade":  1,
-        "Preco":  11.43,
-        "Data":  "2023-01-04",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "98e06a05",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
+        "Ticker":  "VGHF11",
         "Quantidade":  6,
-        "Preco":  9.84,
-        "Data":  "2023-01-04",
-        "RegistradoEm":  "2026-09-18 15:02:29"
+        "Preco":  5.04,
+        "Data":  "2026-09-15",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     },
     {
-        "Id":  "85a121bc",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  6,
-        "Preco":  4.11,
-        "Data":  "2023-01-02",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "854ac0cb",
+        "Id":  "0142c1b9",
         "Tipo":  "Compra",
         "Ticker":  "KLBN4",
-        "Quantidade":  1,
-        "Preco":  3.93,
-        "Data":  "2022-12-26",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "09aaf269",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  1,
-        "Preco":  3.79,
-        "Data":  "2022-12-16",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "0b0777b4",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.91,
-        "Data":  "2022-12-16",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "0e7b1803",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  4,
-        "Preco":  3.9,
-        "Data":  "2022-12-15",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "a065b334",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  2,
-        "Preco":  9.9,
-        "Data":  "2022-12-15",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "72e778a9",
-        "Tipo":  "Venda",
-        "Ticker":  "CMIN3",
         "Quantidade":  1,
         "Preco":  3.87,
-        "Data":  "2022-12-14",
-        "RegistradoEm":  "2026-09-18 15:02:29"
+        "Data":  "2026-09-15",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     },
     {
-        "Id":  "4e813b52",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  4,
-        "Preco":  10.02,
-        "Data":  "2022-12-14",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "ee2c461e",
-        "Tipo":  "Compra",
-        "Ticker":  "BBAS3",
-        "Quantidade":  2,
-        "Preco":  35.6,
-        "Data":  "2022-12-06",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "291f80ce",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  2,
-        "Preco":  3.87,
-        "Data":  "2022-12-06",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "5fd3cb62",
-        "Tipo":  "Compra",
-        "Ticker":  "IRDM11",
-        "Quantidade":  1,
-        "Preco":  95.76,
-        "Data":  "2022-12-06",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "8e90d321",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN4",
-        "Quantidade":  2,
-        "Preco":  3.93,
-        "Data":  "2022-12-06",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "b128939a",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN3",
-        "Quantidade":  1,
-        "Preco":  4.3,
-        "Data":  "2022-11-24",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "40bc42b1",
-        "Tipo":  "Compra",
-        "Ticker":  "KLBN4",
-        "Quantidade":  1,
-        "Preco":  4.32,
-        "Data":  "2022-11-24",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "5d74bae8",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  2,
-        "Preco":  3.57,
-        "Data":  "2022-11-23",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "7fddef40",
-        "Tipo":  "Compra",
-        "Ticker":  "KISU11",
-        "Quantidade":  1,
-        "Preco":  8.25,
-        "Data":  "2022-11-23",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "abc13e48",
-        "Tipo":  "Compra",
-        "Ticker":  "IRBR3",
-        "Quantidade":  2,
-        "Preco":  0.85,
-        "Data":  "2022-11-16",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "3df8553d",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  2,
-        "Preco":  4,
-        "Data":  "2022-11-14",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "c6e00fa5",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  1,
-        "Preco":  3.48,
-        "Data":  "2022-11-07",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "8cfba38a",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  1,
-        "Preco":  10.21,
-        "Data":  "2022-11-07",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "5ade92e8",
-        "Tipo":  "Compra",
-        "Ticker":  "BLMR11",
-        "Quantidade":  1,
-        "Preco":  7.63,
-        "Data":  "2022-11-04",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "a0d45ac7",
-        "Tipo":  "Compra",
-        "Ticker":  "IRDM11",
-        "Quantidade":  1,
-        "Preco":  100.09,
-        "Data":  "2022-11-04",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "4e49c629",
-        "Tipo":  "Venda",
-        "Ticker":  "IRDM11",
-        "Quantidade":  1,
-        "Preco":  103.15,
-        "Data":  "2022-10-14",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "581e6293",
-        "Tipo":  "Compra",
-        "Ticker":  "BLMR11",
-        "Quantidade":  1,
-        "Preco":  7.78,
-        "Data":  "2022-10-05",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "a358a608",
-        "Tipo":  "Compra",
-        "Ticker":  "BRCR11",
-        "Quantidade":  1,
-        "Preco":  69.89,
-        "Data":  "2022-10-05",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "a7739113",
-        "Tipo":  "Compra",
-        "Ticker":  "GGBR4",
-        "Quantidade":  1,
-        "Preco":  25.34,
-        "Data":  "2022-10-05",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "d88372de",
-        "Tipo":  "Compra",
-        "Ticker":  "PQAG11",
-        "Quantidade":  1,
-        "Preco":  55.95,
-        "Data":  "2022-10-05",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "fe661f7f",
-        "Tipo":  "Compra",
-        "Ticker":  "BBAS3",
-        "Quantidade":  1,
-        "Preco":  38.18,
-        "Data":  "2022-10-04",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "4f5d7583",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  1,
-        "Preco":  10.29,
-        "Data":  "2022-10-04",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "f8c00301",
-        "Tipo":  "Compra",
-        "Ticker":  "SANB3",
-        "Quantidade":  1,
-        "Preco":  14.17,
-        "Data":  "2022-10-03",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "af2f69e1",
-        "Tipo":  "Compra",
-        "Ticker":  "TAEE3",
-        "Quantidade":  1,
-        "Preco":  12.92,
-        "Data":  "2022-10-03",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "00c92208",
-        "Tipo":  "Compra",
-        "Ticker":  "TAEE4",
-        "Quantidade":  1,
-        "Preco":  12.99,
-        "Data":  "2022-10-03",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "21dc639c",
-        "Tipo":  "Compra",
-        "Ticker":  "BLMR11",
-        "Quantidade":  1,
-        "Preco":  7.87,
-        "Data":  "2022-09-27",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "5fac40a4",
-        "Tipo":  "Compra",
-        "Ticker":  "KISU11",
-        "Quantidade":  2,
-        "Preco":  8.40,
-        "Data":  "2022-09-27",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "048bfd0c",
-        "Tipo":  "Compra",
-        "Ticker":  "VGIR11",
-        "Quantidade":  1,
-        "Preco":  9.89,
-        "Data":  "2022-09-23",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "854f1771",
-        "Tipo":  "Compra",
-        "Ticker":  "IRDM11",
-        "Quantidade":  1,
-        "Preco":  101.94,
-        "Data":  "2022-09-21",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "1d44a153",
-        "Tipo":  "Compra",
-        "Ticker":  "MXRF11",
-        "Quantidade":  2,
-        "Preco":  10.28,
-        "Data":  "2022-09-21",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "b9f68c45",
+        "Id":  "3cd5ec70",
         "Tipo":  "Compra",
         "Ticker":  "VGIR11",
         "Quantidade":  2,
-        "Preco":  9.89,
-        "Data":  "2022-09-21",
-        "RegistradoEm":  "2026-09-18 15:02:29"
+        "Preco":  9.55,
+        "Data":  "2026-09-16",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     },
     {
-        "Id":  "5be9b23a",
+        "Id":  "89c9dda1",
         "Tipo":  "Compra",
-        "Ticker":  "IRBR3",
-        "Quantidade":  1,
-        "Preco":  1.22,
-        "Data":  "2022-09-16",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "fe8f3c2f",
-        "Tipo":  "Compra",
-        "Ticker":  "XPCM11",
-        "Quantidade":  1,
-        "Preco":  18.73,
-        "Data":  "2022-09-16",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "da8af067",
-        "Tipo":  "Compra",
-        "Ticker":  "CMIN3",
-        "Quantidade":  2,
-        "Preco":  3.7,
-        "Data":  "2022-09-13",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "fbac0b36",
-        "Tipo":  "Compra",
-        "Ticker":  "IRBR3",
+        "Ticker":  "VGIR11",
         "Quantidade":  3,
-        "Preco":  1.24,
-        "Data":  "2022-09-13",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "44885c29",
-        "Tipo":  "Compra",
-        "Ticker":  "ITSA4",
-        "Quantidade":  1,
-        "Preco":  9.4,
-        "Data":  "2022-09-09",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "d973439b",
-        "Tipo":  "Compra",
-        "Ticker":  "MGLU3",
-        "Quantidade":  1,
-        "Preco":  4.3,
-        "Data":  "2022-09-09",
-        "RegistradoEm":  "2026-09-18 15:02:29"
-    },
-    {
-        "Id":  "7bb0b20e",
-        "Tipo":  "Compra",
-        "Ticker":  "BRML3",
-        "Quantidade":  1,
-        "Preco":  8.64,
-        "Data":  "2022-09-08",
-        "RegistradoEm":  "2026-09-18 15:02:29"
+        "Preco":  9.55,
+        "Data":  "2026-09-17",
+        "RegistradoEm":  "2026-09-18 16:01:25"
     }
 ]
